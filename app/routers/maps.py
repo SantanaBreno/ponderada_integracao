@@ -4,7 +4,7 @@ from app.services.google_maps import get_address, get_nearby_places
 router = APIRouter()
 
 @router.get("/maps/location")
-async def location(lat: float = Query(...),lon: float = Query(...)):
+async def location(lat: float = Query(...), lon: float = Query(...)):
     address = await get_address(lat, lon)
 
     if not address:

@@ -7,19 +7,22 @@ GEOCODE_URL = "https://maps.googleapis.com/maps/api/geocode/json"
 PLACES_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
 async def get_address(lat: float, lon: float):
+    """Retorna o endereço correspondente às coordenadas"""
+    print(GOOGLE_MAPS_API_KEY)
+
     async with httpx.AsyncClient() as client:
         response = await client.get(
             GEOCODE_URL,
-            params = {"latlng": f"{lat},{lon}", "key": GOOGLE_MAPS_API_KEY},
+            params={"latlng": f"{lat},{lon}", "key": GOOGLE_MAPS_API_KEY},
         )
 
     if response.status_code != 200:
         raise GoogleAPIException()
-    
+
     data = response.json()
     if not data["results"]:
         return None
-    
+
     return data["results"][0]["formatted_address"]
 
 async def get_nearby_places(lat: float, lon: float, place_type: str = 'restaurant'):
