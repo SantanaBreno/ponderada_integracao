@@ -6,3 +6,6 @@ Para essa atividade foi realizado uma integração de uma api em fastapi com a a
 
 <img src="./images/Diagrama_componentes.png" alt="Diagrama de componentes" width="500"/>
 
+## Resultados da integração
+
+<img src="./images/endereco_maps.png" alt="Diagrama de componentes" width="500"/>

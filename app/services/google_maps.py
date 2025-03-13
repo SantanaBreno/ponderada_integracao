@@ -8,8 +8,6 @@ PLACES_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
 
 async def get_address(lat: float, lon: float):
     """Retorna o endereço correspondente às coordenadas"""
-    print(GOOGLE_MAPS_API_KEY)
-
     async with httpx.AsyncClient() as client:
         response = await client.get(
             GEOCODE_URL,
